@@ -60,23 +60,23 @@ define([
 				logger.debug("range without second date attribute provided: fallback to text input");
 			}
 			var ro = this.readonly?{ readonly : 'true'}:{};
-			switch (this.displaytype) { 
-				case "textinput": 
+			switch (this.displaytype) {
+				case "textinput":
 					this.selector = '#' + id + ' input';
 					div.appendChild(dom.create('input', $.extend({ 'class': 'form-control', 'type': 'text', 'placeholder': this.inputplaceholder}, ro)));
 					break;
-				case "component": 
+				case "component":
 					this.selector = '#' + id + ' .input-group.date';
 					var groupdiv = div.appendChild(dom.create('div', { 'class': 'input-group date' }));
 					groupdiv.appendChild(dom.create('input', $.extend({ 'class': 'form-control', 'type': 'text', 'placeholder': this.inputplaceholder}, ro)));
 					var span = dom.create('span', { 'class': 'input-group-addon' });
 					groupdiv.appendChild(span);
-					span.appendChild(dom.create('i', { 'class': 'glyphicon glyphicon-th' }));					
+					span.appendChild(dom.create('i', { 'class': 'glyphicon glyphicon-th' }));
 					break;
-				case "embedded": 
+				case "embedded":
 					this.selector = '#' + id + '';
 					break;
-				case "range": 
+				case "range":
 					this.selector = '#' + id + ' .input-daterange';
 					var rangediv = div.appendChild(dom.create('div', { 'class': 'input-daterange input-group', 'id' : 'datepicker' }));
 					rangediv.appendChild(dom.create('input', $.extend({ 'class': 'input-sm form-control', 'type': 'text', 'name': 'start', 'id': 'startTime', 'placeholder': this.inputplaceholder }, ro)));
@@ -227,7 +227,7 @@ define([
 				});
 			}
 		},
-		
+
 		update: function (obj, callback) {
 			logger.debug('update');
 			if (obj) {
@@ -321,6 +321,9 @@ define([
 						};
 					}
 				}
+				return {
+					classes: this.invaliddateclass
+				};
 			}
 		},
 		enable: function () {
