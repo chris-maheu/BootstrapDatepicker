@@ -311,7 +311,7 @@ define([
 		},
 		beforeShowDay: function (d) {
 			var i;
-			if (this.validDates) {
+			if (this.validDates && this.validDates.length) {
 				//console.log('before show ' + d);
 				for (i = 0; i < this.validDates.length; i++) {
 					if (this.dateWithoutTimeSame(this.validDates[i], d)) {
